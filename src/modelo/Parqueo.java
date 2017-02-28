@@ -16,7 +16,7 @@ public class Parqueo {
     static public Boolean generarArchivo() {
         //verificacion de arcihvo
         Boolean error = false;
-        String ubicacion = "ssrc/soporte/base.txt";
+        String ubicacion = "src/soporte/base.txt";
         Path archivo = Paths.get(ubicacion);
         if (Files.notExists(archivo)) {
             try {
@@ -24,7 +24,12 @@ public class Parqueo {
                 PrintWriter writer = new PrintWriter(ubicacion, "UTF-8");
                 writer.println("--------UMG---------");
                 for (int i = 1; i <= 3; i++) {
-                    writer.println("PARQUEO" + i);
+                    int contador = Parqueo.getCantidadParqueo(i);
+                    String texto = "|";
+                    for (int c = 1; c <= contador; c++) {
+                        texto = texto + c + "=0|";
+                    }
+                    writer.println("PARQUEO" + i + texto);
                 }
                 writer.close();
             } catch (Exception e) {
@@ -35,5 +40,21 @@ public class Parqueo {
             Soporte.Alerta("archivo encontrado");
         }
         return error;
+    }
+
+    static int getCantidadParqueo(int i) {
+        int contador = 0;
+        switch (i) {
+            case 1:
+                contador = 14;
+                break;
+            case 2:
+                contador = 11;
+                break;
+            case 3:
+                contador = 13;
+                break;
+        }
+        return contador;
     }
 }
