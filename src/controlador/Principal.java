@@ -9,12 +9,17 @@ public class Principal {
     public static void main(String args[]) {
         Inicio inicio = new Inicio();
         Boolean error = Parqueo.generarArchivo();
+        Parqueo parqueo = new Parqueo();
         if (error) {
             Soporte.Alerta("Por motivos se cierra la aplicacion, vuelve pronto");
             inicio.setVisible(false);
             inicio.dispose();
         } else {
             inicio.setVisible(true);
+            int disponible;
+            for (int i = 1; i <= 3; i++) {
+                parqueo.getCantidadDisponible("PARQUEO" + i);
+            }
         }
     }
 }

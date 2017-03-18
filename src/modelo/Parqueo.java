@@ -29,7 +29,7 @@ public class Parqueo {
                     for (int c = 1; c <= contador; c++) {
                         texto = texto + c + "=0|";
                     }
-                    writer.println("PARQUEO" + i + texto);
+                    writer.println("NIVEL" + i + texto);
                 }
                 writer.close();
             } catch (Exception e) {
@@ -37,7 +37,7 @@ public class Parqueo {
                 error = true;
             }
         } else {
-            Soporte.Alerta("archivo encontrado");
+            Soporte.Alerta("Archivo Encontrado");
         }
         return error;
     }
