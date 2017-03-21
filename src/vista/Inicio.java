@@ -98,10 +98,32 @@ public class Inicio extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-    public void setColorParqueo(Color color, Color color2, Color color3) {
-        jButton1.setBackground(color);
-        jButton2.setBackground(color2);
-        jButton2.setBackground(color3);
+    public void setColorParqueo(Color color, int parqueo) {
+        switch (parqueo) {
+            case 1:
+                jButton1.setBackground(color);
+                break;
+            case 2:
+                jButton2.setBackground(color);
+                break;
+            case 3:
+                jButton3.setBackground(color);
+                break;
+        }
+    }
+
+    public void setBotonActivo(Boolean activo, int parqueo) {
+        switch (parqueo) {
+            case 1:
+                jButton1.setEnabled(activo);
+                break;
+            case 2:
+                jButton2.setEnabled(activo);
+                break;
+            case 3:
+                jButton3.setEnabled(activo);
+                break;
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
