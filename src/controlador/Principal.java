@@ -11,6 +11,7 @@ public class Principal {
     public static void main(String args[]) throws FileNotFoundException {
         Inicio inicio = new Inicio();
         Boolean error = Parqueo.generarArchivo();
+        Parqueo.deshusarParqueo(2, 2);
         Parqueo parqueo = new Parqueo();
         if (error) {
             Soporte.Alerta("Por motivos de archivo se cierra la aplicacion, vuelve pronto");
