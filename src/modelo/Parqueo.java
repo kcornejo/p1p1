@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import soporte.Soporte;
 
 public class Parqueo {
-    
+
     public static int getCantidadDisponible(int parqueo) throws FileNotFoundException {
         int retorno = 0;
         int max = Parqueo.getCantidadParqueo(parqueo);
@@ -38,7 +38,7 @@ public class Parqueo {
         }
         return retorno;
     }
-    
+
     public static void deshusarParqueo(int parqueo, int posicion) throws FileNotFoundException {
         String ubicacion = "src/soporte/base.txt";
         String ubicacion_soporte = "src/soporte/base_soporte.txt";
@@ -56,11 +56,11 @@ public class Parqueo {
                     Date dNow = new Date();
                     SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                     String fecha = ft.format(dNow);
-                    
+
                     if (posicion_en_archivo[1].equals("1")) {
                         DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
                         Date date = format.parse(posicion_en_archivo[2]);
-                        double horas = (double)Parqueo.horasDiferencia(date, dNow);
+                        double horas = (double) Parqueo.horasDiferencia(date, dNow);
                         Soporte.Alerta("Estuviste por " + String.valueOf(horas) + " horas");
                         linea_arreglo[posicion] = posicion + "=0=" + fecha;
                     } else {
@@ -84,12 +84,12 @@ public class Parqueo {
             System.out.println(e.getMessage());
         }
     }
-    
+
     public static double horasDiferencia(Date date1, Date date2) {
         long duration = date2.getTime() - date1.getTime();
         long diffInHours = TimeUnit.MILLISECONDS.toHours(duration);
         double horas = (double) diffInHours;
-        
+
         int diferencia;
         System.out.println(date1.getMinutes());
         System.out.println(date2.getMinutes());
@@ -107,7 +107,31 @@ public class Parqueo {
 //        final int MILLI_TO_HOUR = 1000 * 60 * 60;
 //        return (int) (date1.getTime() - date2.getTime()) / MILLI_TO_HOUR;
     }
-    
+
+    public static Boolean parqueoDisponible(int parqueo, int posicion) throws FileNotFoundException {
+        String ubicacion = "src/soporte/base.txt";
+        Scanner in = new Scanner(new FileReader(ubicacion));
+        String linea;
+        try {
+            while (in.hasNextLine()) {
+                linea = in.nextLine();
+                String[] linea_arreglo = linea.split("\\|");
+                if (linea_arreglo[0].equals("NIVEL" + parqueo)) {
+                    String[] posicion_en_archivo = linea_arreglo[posicion].split("\\=");
+                    if (posicion_en_archivo[1].equals("0")) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            in.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
     public static void usarParqueo(int parqueo, int posicion) throws FileNotFoundException {
         String ubicacion = "src/soporte/base.txt";
         String ubicacion_soporte = "src/soporte/base_soporte.txt";
@@ -134,7 +158,7 @@ public class Parqueo {
                 }
                 writer.println(copiar);
             }
-            
+
             writer.close();
             in.close();
             Scanner in2 = new Scanner(new FileReader(ubicacion_soporte));
@@ -146,10 +170,10 @@ public class Parqueo {
             in2.close();
             writer2.close();
         } catch (Exception e) {
-            
+
         }
     }
-    
+
     public static Boolean generarArchivo() {
         //verificacion de arcihvo
         Boolean error = false;
@@ -181,7 +205,7 @@ public class Parqueo {
         }
         return error;
     }
-    
+
     public static int getCantidadParqueo(int i) {
         int contador = 0;
         switch (i) {
