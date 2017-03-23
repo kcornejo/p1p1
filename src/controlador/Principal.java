@@ -12,6 +12,7 @@ public class Principal {
         Inicio inicio = new Inicio();
         Boolean error = Parqueo.generarArchivo();
         Parqueo parqueo = new Parqueo();
+        Parqueo.deshusarParqueo(2, 2);
         if (error) {
             Soporte.Alerta("Por motivos de archivo se cierra la aplicacion, vuelve pronto");
             inicio.setVisible(false);

@@ -56,11 +56,11 @@ public class Parqueo {
                 if (linea_arreglo[0].equals("NIVEL" + parqueo)) {
                     String[] posicion_en_archivo = linea_arreglo[posicion].split("\\=");
                     Date dNow = new Date();
-                    SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                    SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     String fecha = ft.format(dNow);
 
                     if (posicion_en_archivo[1].equals("1")) {
-                        DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
+                        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
                         Date date = format.parse(posicion_en_archivo[2]);
                         double horas = (double) Parqueo.horasDiferencia(date, dNow);
                         Soporte.Alerta("Estuviste por " + String.valueOf(horas) + " horas");
@@ -149,7 +149,7 @@ public class Parqueo {
                 if (linea_arreglo[0].equals("NIVEL" + parqueo)) {
                     String[] posicion_en_archivo = linea_arreglo[posicion].split("\\=");
                     Date dNow = new Date();
-                    SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                    SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     String fecha = ft.format(dNow);
                     if (posicion_en_archivo[1].equals("0")) {
                         linea_arreglo[posicion] = posicion + "=1=" + fecha;
@@ -187,7 +187,7 @@ public class Parqueo {
                 PrintWriter writer = new PrintWriter(ubicacion, "UTF-8");
                 writer.println("--------UMG---------");
                 Date dNow = new Date();
-                SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String fecha = ft.format(dNow);
                 for (int i = 1; i <= 3; i++) {
                     int contador = Parqueo.getCantidadParqueo(i);
