@@ -42,10 +42,12 @@ public class Parqueo {
     public static void deshusarParqueo(int parqueo, int posicion) throws FileNotFoundException {
         String ubicacion = "src/soporte/base.txt";
         String ubicacion_soporte = "src/soporte/base_soporte.txt";
+        String ubicacion_reporte = "src/soporte/reporte.txt";
         Scanner in = new Scanner(new FileReader(ubicacion));
         String linea;
         try {
             PrintWriter writer = new PrintWriter(ubicacion_soporte, "UTF-8");
+            PrintWriter writer_reporte = new PrintWriter(ubicacion_reporte, "UTF-8");
             String copiar;
             while (in.hasNextLine()) {
                 linea = in.nextLine();
@@ -63,6 +65,7 @@ public class Parqueo {
                         double horas = (double) Parqueo.horasDiferencia(date, dNow);
                         Soporte.Alerta("Estuviste por " + String.valueOf(horas) + " horas");
                         linea_arreglo[posicion] = posicion + "=0=" + fecha;
+                        writer_reporte.println(parqueo + "=" + posicion + "=" + posicion_en_archivo[2] + "=" + fecha);
                     } else {
                         Soporte.Alerta("Parqueo no utilizado");
                     }
@@ -70,6 +73,7 @@ public class Parqueo {
                 }
                 writer.println(copiar);
             }
+            writer_reporte.close();
             writer.close();
             in.close();
             Scanner in2 = new Scanner(new FileReader(ubicacion_soporte));
@@ -91,9 +95,7 @@ public class Parqueo {
         double horas = (double) diffInHours;
 
         int diferencia;
-        System.out.println(date1.getMinutes());
-        System.out.println(date2.getMinutes());
-        if (date1.getMinutes()<= date2.getMinutes()) {
+        if (date1.getMinutes() <= date2.getMinutes()) {
             diferencia = date2.getMinutes() - date1.getMinutes();
         } else {
             diferencia = date1.getMinutes() + 60 - date2.getMinutes();

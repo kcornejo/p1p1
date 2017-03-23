@@ -7,7 +7,7 @@ import modelo.Parqueo;
 import soporte.Soporte;
 
 public class Principal {
-
+    
     public static void main(String args[]) throws FileNotFoundException {
         Inicio inicio = new Inicio();
         Boolean error = Parqueo.generarArchivo();
