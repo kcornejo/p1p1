@@ -12,7 +12,6 @@ public class Principal {
         Inicio inicio = new Inicio();
         Boolean error = Parqueo.generarArchivo();
         Parqueo parqueo = new Parqueo();
-        Parqueo.deshusarParqueo(2, 2);
         if (error) {
             Soporte.Alerta("Por motivos de archivo se cierra la aplicacion, vuelve pronto");
             inicio.setVisible(false);
@@ -28,10 +27,8 @@ public class Principal {
                 inicio.setLabelParqueo(label_parqueo, i);
                 if (disponible == 0) {
                     inicio.setColorParqueo(Color.red, i);
-                    inicio.setBotonActivo(false, i);
                 } else {
                     inicio.setColorParqueo(Color.green, i);
-                    inicio.setBotonActivo(true, i);
                 }
             }
         }

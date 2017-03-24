@@ -1,6 +1,9 @@
 package modelo;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -13,6 +16,7 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import soporte.Soporte;
+import vista.Factura;
 
 public class Parqueo {
 
@@ -47,7 +51,7 @@ public class Parqueo {
         String linea;
         try {
             PrintWriter writer = new PrintWriter(ubicacion_soporte, "UTF-8");
-            PrintWriter writer_reporte = new PrintWriter(ubicacion_reporte, "UTF-8");
+            PrintWriter writer_reporte = new PrintWriter(new FileOutputStream(ubicacion_reporte, true));
             String copiar;
             while (in.hasNextLine()) {
                 linea = in.nextLine();
@@ -63,9 +67,24 @@ public class Parqueo {
                         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
                         Date date = format.parse(posicion_en_archivo[2]);
                         double horas = (double) Parqueo.horasDiferencia(date, dNow);
-                        Soporte.Alerta("Estuviste por " + String.valueOf(horas) + " horas");
+
                         linea_arreglo[posicion] = posicion + "=0=" + fecha;
                         writer_reporte.println(parqueo + "=" + posicion + "=" + posicion_en_archivo[2] + "=" + fecha);
+                        double deuda = 0;
+                        String[] horas_arreglo = String.valueOf(horas).split("\\.");
+                        System.out.println(horas_arreglo[1]);
+                        System.out.println(horas_arreglo[0]);
+                        System.out.print(horas);
+                        if (horas_arreglo[1].equals("5")) {
+                            deuda += Parqueo.getTarifaMedia();
+                        }
+                        deuda += (Double.parseDouble(horas_arreglo[0]) * Parqueo.getTarifaHora());
+                        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+
+                        Factura factura = new Factura();
+                        factura.setDatos(ft.format(date), fecha, String.valueOf(parqueo), String.valueOf(posicion), String.valueOf(deuda));
+                        factura.setVisible(true);
+                        factura.setLocation(dim.width / 2 - factura.getSize().width / 2, dim.height / 2 - factura.getSize().height / 2);
                     } else {
                         Soporte.Alerta("Parqueo no utilizado");
                     }
@@ -89,6 +108,44 @@ public class Parqueo {
         }
     }
 
+    public static double getTarifaHora() {
+        String hora = "";
+        try {
+            String ubicacion = "src/soporte/base.txt";
+            Scanner in = new Scanner(new FileReader(ubicacion));
+            String linea;
+            while (in.hasNextLine()) {
+                linea = in.nextLine();
+                String[] linea_arreglo = linea.split("\\=");
+                if (linea_arreglo[0].equals("TARIFAHORA")) {
+                    hora = linea_arreglo[1];
+                }
+            }
+        } catch (Exception e) {
+
+        }
+        return Double.parseDouble(hora);
+    }
+
+    public static double getTarifaMedia() {
+        String media = "";
+        try {
+            String ubicacion = "src/soporte/base.txt";
+            Scanner in = new Scanner(new FileReader(ubicacion));
+            String linea;
+            while (in.hasNextLine()) {
+                linea = in.nextLine();
+                String[] linea_arreglo = linea.split("\\=");
+                if (linea_arreglo[0].equals("TARIFAMEDIA")) {
+                    media = linea_arreglo[1];
+                }
+            }
+        } catch (Exception e) {
+
+        }
+        return Double.parseDouble(media);
+    }
+
     public static double horasDiferencia(Date date1, Date date2) {
         long duration = date2.getTime() - date1.getTime();
         long diffInHours = TimeUnit.MILLISECONDS.toHours(duration);
@@ -100,7 +157,7 @@ public class Parqueo {
         } else {
             diferencia = date1.getMinutes() + 60 - date2.getMinutes();
         }
-        if (diferencia > 0 && diferencia <= 30) {
+        if (diferencia >= 0 && diferencia <= 30) {
             horas = horas + 0.5;
         } else {
             horas = horas + 1;
@@ -197,6 +254,8 @@ public class Parqueo {
                     }
                     writer.println("NIVEL" + i + texto);
                 }
+                writer.println("TARIFAHORA=6");
+                writer.println("TARIFAMEDIA=3");
                 writer.close();
             } catch (Exception e) {
                 Soporte.Alerta("Error de escritura en archivo base " + e.getMessage());

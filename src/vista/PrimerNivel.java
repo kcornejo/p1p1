@@ -4,9 +4,11 @@
  */
 package vista;
 
+import java.awt.Color;
 import java.io.*;
+import modelo.Parqueo;
 
-public class PrimerNivel  extends javax.swing.JFrame  {
+public class PrimerNivel extends javax.swing.JFrame {
 
     /**
      * Creates new form PrimerNivel
@@ -35,14 +37,35 @@ public class PrimerNivel  extends javax.swing.JFrame  {
         jButton7 = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("1");
+        jButton1.setEnabled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("2");
+        jButton2.setEnabled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("3");
+        jButton3.setEnabled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -50,6 +73,7 @@ public class PrimerNivel  extends javax.swing.JFrame  {
         });
 
         jButton4.setText("4");
+        jButton4.setEnabled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -57,8 +81,15 @@ public class PrimerNivel  extends javax.swing.JFrame  {
         });
 
         jButton5.setText("5");
+        jButton5.setEnabled(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("6");
+        jButton6.setEnabled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -88,96 +119,509 @@ public class PrimerNivel  extends javax.swing.JFrame  {
             }
         });
 
+        jButton8.setText("8");
+        jButton8.setEnabled(false);
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("9");
+        jButton9.setEnabled(false);
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("10");
+        jButton10.setToolTipText("");
+        jButton10.setEnabled(false);
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jButton11.setText("11");
+        jButton11.setEnabled(false);
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jButton12.setText("12");
+        jButton12.setEnabled(false);
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton13.setText("13");
+        jButton13.setEnabled(false);
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setText("14");
+        jButton14.setEnabled(false);
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton15.setText("7");
+        jButton15.setToolTipText("");
+        jButton15.setEnabled(false);
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(192, 192, 192)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton1)))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioButton2)
+                                .addComponent(jButton7)
+                                .addComponent(jRadioButton1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jRadioButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, Short.MAX_VALUE)
+                .addComponent(jRadioButton2)
+                .addGap(33, 33, 33)
                 .addComponent(jButton7)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 4);
+            } else {
+                Parqueo.deshusarParqueo(1, 4);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 3);
+            } else {
+                Parqueo.deshusarParqueo(1, 3);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 6);
+            } else {
+                Parqueo.deshusarParqueo(1, 6);
+            }
+        } catch (Exception e) {
 
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton6ActionPerformed
+    public void salir(){
+        try {
+            dispose();
+            Inicio inicio = new Inicio();
+            inicio.setVisible(true);
+            int disponible;
+            int espacios_total;
+            Parqueo parqueo = new Parqueo();
+            for (int i = 1; i <= 3; i++) {
+                disponible = parqueo.getCantidadDisponible(i);
+                espacios_total = parqueo.getCantidadParqueo(i);
+                String label_parqueo = "Nivel " + i + " \n(" + disponible + "/" + espacios_total + ")";
+                inicio.setLabelParqueo(label_parqueo, i);
+                if (disponible == 0) {
+                    inicio.setColorParqueo(Color.red, i);
+                } else {
+                    inicio.setColorParqueo(Color.green, i);
+                }
+            }
+        } catch (Exception e) {
+
+        }
+    }
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        dispose();
-        Inicio inicio = new Inicio();
-        inicio.setVisible(true);
+        this.salir();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-        String texto = "";
-        try{ 
-            BufferedReader buffer = new BufferedReader(new FileReader("src/soporte/base.txt"));
-            //String temp = "";
-            String bf;
-            while((bf = buffer.readLine()) != null){
-             String[] temp = bf.split("\\=");
-            System.out.println(temp[1]);
+        Boolean activo;
+        Color color;
+        for (int i = 1; i <= 14; i++) {
+            try {
+                activo = Parqueo.parqueoDisponible(1, i);
+                if (activo) {
+                    color = Color.GREEN;
+                } else {
+                    color = Color.RED;
+                }
+                switch (i) {
+                    case 1:
+                        jButton1.setEnabled(activo);
+                        jButton1.setBackground(color);
+                        break;
+                    case 2:
+                        jButton2.setEnabled(activo);
+                        jButton2.setBackground(color);
+                        break;
+                    case 3:
+                        jButton3.setEnabled(activo);
+                        jButton3.setBackground(color);
+                        break;
+                    case 4:
+                        jButton4.setEnabled(activo);
+                        jButton4.setBackground(color);
+                        break;
+                    case 5:
+                        jButton5.setEnabled(activo);
+                        jButton5.setBackground(color);
+                        break;
+                    case 6:
+                        jButton6.setEnabled(activo);
+                        jButton6.setBackground(color);
+                        break;
+                    case 7:
+                        jButton15.setEnabled(activo);
+                        jButton15.setBackground(color);
+                        break;
+                    case 8:
+                        jButton8.setEnabled(activo);
+                        jButton8.setBackground(color);
+                        break;
+                    case 9:
+                        jButton9.setEnabled(activo);
+                        jButton9.setBackground(color);
+                        break;
+                    case 10:
+                        jButton10.setEnabled(activo);
+                        jButton10.setBackground(color);
+                        break;
+                    case 11:
+                        jButton11.setEnabled(activo);
+                        jButton11.setBackground(color);
+                        break;
+                    case 12:
+                        jButton12.setEnabled(activo);
+                        jButton12.setBackground(color);
+                        break;
+                    case 13:
+                        jButton13.setEnabled(activo);
+                        jButton13.setBackground(color);
+                        break;
+                    case 14:
+                        jButton14.setEnabled(activo);
+                        jButton14.setBackground(color);
+                        break;
+                }
+            } catch (Exception e) {
+
             }
-        }catch(Exception e){
-            System.err.println("No se pudo abrir");
         }
 
-               
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
+        Boolean activo;
+        Color color;
+        for (int i = 1; i <= 14; i++) {
+            try {
+                activo = Parqueo.parqueoDisponible(1, i);
+                if (!activo) {
+                    activo = true;
+                    color = Color.GREEN;
+                } else {
+                    activo = false;
+                    color = Color.RED;
+                }
+                switch (i) {
+                    case 1:
+                        jButton1.setEnabled(activo);
+                        jButton1.setBackground(color);
+                        break;
+                    case 2:
+                        jButton2.setEnabled(activo);
+                        jButton2.setBackground(color);
+                        break;
+                    case 3:
+                        jButton3.setEnabled(activo);
+                        jButton3.setBackground(color);
+                        break;
+                    case 4:
+                        jButton4.setEnabled(activo);
+                        jButton4.setBackground(color);
+                        break;
+                    case 5:
+                        jButton5.setEnabled(activo);
+                        jButton5.setBackground(color);
+                        break;
+                    case 6:
+                        jButton6.setEnabled(activo);
+                        jButton6.setBackground(color);
+                        break;
+                    case 7:
+                        jButton15.setEnabled(activo);
+                        jButton15.setBackground(color);
+                        break;
+                    case 8:
+                        jButton8.setEnabled(activo);
+                        jButton8.setBackground(color);
+                        break;
+                    case 9:
+                        jButton9.setEnabled(activo);
+                        jButton9.setBackground(color);
+                        break;
+                    case 10:
+                        jButton10.setEnabled(activo);
+                        jButton10.setBackground(color);
+                        break;
+                    case 11:
+                        jButton11.setEnabled(activo);
+                        jButton11.setBackground(color);
+                        break;
+                    case 12:
+                        jButton12.setEnabled(activo);
+                        jButton12.setBackground(color);
+                        break;
+                    case 13:
+                        jButton13.setEnabled(activo);
+                        jButton13.setBackground(color);
+                        break;
+                    case 14:
+                        jButton14.setEnabled(activo);
+                        jButton14.setBackground(color);
+                        break;
+                }
+            } catch (Exception e) {
+
+            }
+        }
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 14);
+            } else {
+                Parqueo.deshusarParqueo(1, 14);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 7);
+            } else {
+                Parqueo.deshusarParqueo(1, 7);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 1);
+            } else {
+                Parqueo.deshusarParqueo(1, 1);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 2);
+            } else {
+                Parqueo.deshusarParqueo(1, 2);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 5);
+            } else {
+                Parqueo.deshusarParqueo(1, 5);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 8);
+            } else {
+                Parqueo.deshusarParqueo(1, 8);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 9);
+            } else {
+                Parqueo.deshusarParqueo(1, 9);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 10);
+            } else {
+                Parqueo.deshusarParqueo(1, 10);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 11);
+            } else {
+                Parqueo.deshusarParqueo(1, 11);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 12);
+            } else {
+                Parqueo.deshusarParqueo(1, 12);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        try {
+            if (jRadioButton1.isSelected()) {
+                Parqueo.usarParqueo(1, 13);
+            } else {
+                Parqueo.deshusarParqueo(1, 13);
+            }
+        } catch (Exception e) {
+
+        }
+        this.salir();
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,12 +660,20 @@ public class PrimerNivel  extends javax.swing.JFrame  {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup PrimerNGrupo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollBar jScrollBar1;
